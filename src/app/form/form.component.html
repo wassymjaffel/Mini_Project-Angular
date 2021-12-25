@@ -1,0 +1,10 @@
+<form #f="ngForm">
+    <label>name</label>
+    <input type="text" name="name" ngModel required #test="ngModel">
+    <div *ngIf="test.invalid">REQUIRED</div>
+    <label>desciption</label>
+    <input type="text" name="desciption" ngModel>
+    <label>prix</label>
+    <input type="number" name="prix" ngModel>
+    <input type="submit" value="send" (click)="showform(f,test)" [disabled]="f.invalid">
+</form>>

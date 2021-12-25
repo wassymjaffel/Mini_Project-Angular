@@ -1,0 +1,4 @@
+<p>showproducts works!</p>
+<div *ngFor="let p of products">
+<app-showoneproduct [product]="p" (notif)="increaseLike($event)" (notif1)="decreaseLike($event)"></app-showoneproduct>
+</div>

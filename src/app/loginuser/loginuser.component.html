@@ -1,0 +1,16 @@
+<form [formGroup]="f">
+    <label>Email</label>
+    <input type="text" formControlName="email" >
+    <div *ngIf="email?.touched && email?.invalid">
+    <div *ngIf="email?.errors?.required"> Required </div>
+    <div *ngIf="email?.errors?.email"> @ </div>
+    </div>
+    <label>password</label>
+    <input type="password" formControlName="password" >
+    <div *ngIf="password?.touched && email?.invalid">
+        <div *ngIf="password?.errors?.required"> Required </div>
+        <div *ngIf="password?.errors?.pattern"> pattern </div>
+        </div>
+    <input type="submit" value="send" [hidden]="f.invalid" (click)="showform(f)">
+    
+</form>

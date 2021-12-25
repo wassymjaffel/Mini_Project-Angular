@@ -1,0 +1,16 @@
+<p>list-produits-component works!</p>
+<div *ngFor="let p of ListProduit let i=index">
+<ul>
+<li>{{p.idProduit}}</li>
+<li>{{p.code}}</li>
+<li>{{p.libelle}}</li>
+<li>{{p.prixUnitaire}}</li>
+<li>{{p.tauxTVA}}</li>
+<div *ngIf=" g==i">TVA Modifié</div>
+<!-- show = true-->
+    
+        <input type="submit" value="ajusterTVA" [disabled]="p.tauxTVA==0.02" (click)="TVA(i)">
+        
+</ul>
+
+</div>

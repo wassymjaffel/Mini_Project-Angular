@@ -1,0 +1,36 @@
+<form #fuser="ngForm">
+
+    <label>FirstName</label>
+    <input type="text" name="firstName" [(ngModel)]="user.firstName" required pattern="[a-zA-Z]*" #firstName="ngModel">
+    <div *ngIf="firstName.invalid && firstName.touched"> 
+        <div *ngIf="firstName.errors?.required"> Required </div>
+        <div *ngIf="firstName.errors?.pattern"> Char only </div>
+    </div>
+    <label>LastName</label>
+    <input type="text" name="lastName" [(ngModel)]="user.lastName" required>
+    <label>BirthDate</label>
+    <input type="date" name="birthDate">
+    <label>Email</label>
+    <input type="email" name="email">
+    <label>Password</label>
+    <input type="password" name="password" [(ngModel)]="user.password" required pattern="^[a-zA-Z0-9]{8,}?" #password="ngModel">
+    <div *ngIf="password.invalid && password.touched"> 
+        <div *ngIf="password.errors?.required"> Required </div>
+        <div *ngIf="password.errors?.pattern"> pattern </div>
+    </div>
+    <label for="">Profession</label>
+    <input type="text" name="profession">
+    <label >Customer Category</label>
+    <select name="accountCategory">
+        <option value="Admin">Admin</option>
+        <option value="Customer" selected>Customer </option>
+        <option value="Golden">Golden</option>
+        <option value="Blocked">Blocked</option>
+    </select>
+    <input type="submit" value="send" [disabled]="fuser.invalid" (click)="add(fuser.value)">
+</form>
+
+<div *ngFor="let l of list">
+    {{l.firstName}}
+    {{l.lastName}}
+</div>

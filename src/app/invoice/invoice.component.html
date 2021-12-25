@@ -1,0 +1,36 @@
+
+<div class="container text-center">
+<button class="btn btn-primary" style="width: 30%" (click)="addInvoice()">add invoice</button>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">discountAmount</th>
+        <th scope="col">billAmount</th>
+        <th scope="col">dateBill</th>
+        <th scope="col">status</th>
+        <th scope="col">actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let invoice of invoices; let index=index">
+        <th scope="row">{{invoice.idInvoice}}</th>
+        <td>{{invoice.discountAmount}}</td>
+        <td>{{invoice.billAmount}}</td>
+        <td>{{invoice.dateBill}}</td>
+        <td>{{invoice.status}}</td>
+        <td><button class="btn btn-danger" (click)="deleteInvoice(index)">delete</button></td>
+        <td><button class="btn btn-success" (click)="updateInvoice(index)">update</button>
+        
+        </td>
+
+      </tr>
+      
+    </tbody>
+  </table>
+
+<app-update-invoice [item]="updatedItem" *ngIf="update" (newItemEvent)="addItem($event)"></app-update-invoice>
+
+</div>
+

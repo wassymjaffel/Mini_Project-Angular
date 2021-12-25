@@ -1,0 +1,7 @@
+<p>show-one-provider works!</p>
+<div *ngIf="search=='' || provider.libelle== search">
+{{provider.idProvider}}
+{{provider.code}}
+{{provider.libelle}}
+<input type="submit" value="delete" (click)="sendDelete()">
+</div>

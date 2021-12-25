@@ -1,0 +1,20 @@
+<p>userformreactive works!</p>
+<!-- <input type="text" [formControl]="name">
+<div *ngIf="name.errors?.required"> Required </div>
+<div *ngIf="name.errors?.minlength"> minlen </div> -->
+<form [formGroup]="f">
+<label>FirstName</label>
+<input type="text" formControlName="firstName">
+<div *ngIf="getfirstName()?.invalid">Invalid</div>
+<label>LastName</label>
+<input type="text" formControlName="lastName"> 
+<div *ngIf="getlastName()?.invalid">Invalid</div>
+<div formArrayName="cours">
+<div *ngFor="let c of cours.controls ; let i=index">
+    <input type="text" [formControlName]="i">
+    <input type="submit" value="-" (click)="deletecours(i)">
+</div>
+<input type="submit" value="+" (click)="addcours()">
+</div>
+<input type="submit" value="send" [disabled]="form.invalid">
+</form>

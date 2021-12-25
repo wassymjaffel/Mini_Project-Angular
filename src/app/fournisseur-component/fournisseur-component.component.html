@@ -1,0 +1,12 @@
+<p>fournisseur-component works!</p>
+<div *ngFor="let f of list">
+    <div *ngIf = "f.libelle=='hp'">
+<ul>
+   <!--{{libelle | uppercase}} --> 
+   <li>{{f.idFournisseur}}</li>
+   <li>{{f.code}}</li>
+   <li>{{f.libelle}}</li>
+   <input type="submit" value="Delete" (click)="DeleteFournisseur(f)">
+</ul>
+</div>
+</div>

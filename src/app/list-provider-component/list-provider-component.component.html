@@ -1,0 +1,9 @@
+<p>list-provider-component works!</p>
+<input type="submit" value="Add" (click)="showAdd()">
+<input type="text" [(ngModel)]="name" >
+<div *ngFor="let p of ListProviders">
+<app-show-one-provider [provider]="p" (notif)="deleteFromList($event)" [search]="name"></app-show-one-provider>
+</div>
+<div *ngIf="show==true">
+<app-addproviderform (notif)="saveData($event)"></app-addproviderform>
+</div>

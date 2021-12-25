@@ -1,0 +1,33 @@
+<p>list-invoice works!</p>
+<div>
+    <table class="table">
+        <thead>
+          <tr >
+            <th scope="col">idInvoice</th>
+            <th scope="col">discountAmount</th>
+            <th scope="col">billAmount</th>
+            <th scope="col">dateBill</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let invoice of Invoices;let i=index  ">
+            <th scope="row">{{invoice.idInvoice}}</th>
+            <td>{{invoice.discountAmount}}</td>
+            <td>{{invoice.billAmount}}</td>
+            <td>{{invoice.dateBill}}</td>
+            <td>{{invoice.Status}}</td>
+                 
+            <td> <button class="btn btn-danger" value="Delete" (click)="delete(i)"> delete</button> </td>
+            <td> <button class="btn btn-success" value="Update" (click)="update(i)"> update</button> </td>
+            
+            
+            
+    
+          </tr>
+         
+      </table>
+
+      <app-edit-invoice item="updateitem"></app-edit-invoice>
+     </div> 
